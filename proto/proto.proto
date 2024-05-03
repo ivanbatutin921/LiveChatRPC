@@ -1,0 +1,14 @@
+syntax = "proto3";
+option go_package = "./";
+
+package proto;
+
+service LiveChat {
+    rpc SendMessage(LiveChatData) returns (LiveChatData) {}
+    rpc ReceiveMessage(stream LiveChatData) returns (LiveChatData) {}
+}
+
+message LiveChatData{
+    int32 Id = 1;
+    string message = 2;    
+}
